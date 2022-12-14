@@ -1,0 +1,34 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.7.5'
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation group: 'com.amazonaws', name: 'aws-java-sdk-s3', version: '1.11.276'
+    implementation platform('com.amazonaws:aws-java-sdk-bom:1.11.228')
+    implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.4.0-b180830.0359'
+    implementation group: 'com.sun.xml.bind', name: 'jaxb-impl', version: '2.3.2'
+    implementation group: 'com.sun.xml.bind', name: 'jaxb-core', version: '4.0.1'
+    implementation group: 'javax.activation', name: 'activation', version: '1.1.1'
+    implementation group: 'javax.ws.rs', name: 'javax.ws.rs-api', version: '2.0'
+    implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+    implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: '2.0.4'
+    implementation group: 'org.slf4j', name: 'slf4j-simple', version: '2.0.4'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation group: 'org.springframework', name: 'spring-test', version: '2.7.4'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
